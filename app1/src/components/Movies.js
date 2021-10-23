@@ -1,11 +1,17 @@
-import React from 'react'
+ 
+// import React from 'react'
+const React = window.React ?? require('react')
+
+
 
 React.xx = React.xx ?? 'React in App 1'
 
 export default function Movies() {
 
+    console.log('In Movies', React.version, React.xx);
+
     React.useEffect(() => {
-        console.log('In Movies', React.version, React.xx);
+        console.log('In Movies with useEffect()', React.version, React.xx);
     }, [])
     
     return <div style={{color:'blue', backgroundColor: 'yellow', width:'100%'}}>Movies</div>

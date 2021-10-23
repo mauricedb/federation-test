@@ -11,6 +11,11 @@ const Movies = dynamic(() => import('app1/Movies'), { ssr: false })
 export default function Home() {
   console.log('In Home', React.version, React.xx);
 
+  if (global.window){
+
+    window.React = React
+  }
+
   return (
     <div className={styles.container}>
       <Head>
