@@ -1,6 +1,5 @@
  
-// import React from 'react'
-const React = window.React ?? require('react')
+import React from 'react'
 
 
 
