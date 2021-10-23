@@ -1,11 +1,3 @@
-// module.exports = {
-//   reactStrictMode: true,
-
-  
-// }
-
-const deps = require("./package.json").dependencies;
-
 module.exports = (phase, { defaultConfig }) => {
   /**
    * @type {import('next').NextConfig}
@@ -18,21 +10,9 @@ module.exports = (phase, { defaultConfig }) => {
       config.plugins.push(
         new ModuleFederationPlugin({
           remotes: {
-            // app2: "app2@https://kevinmfe.s3.amazonaws.com/app2/dist/remoteEntry.js",
             app1: "app1@http://localhost:3001/remoteEntry.js",
           },
           shared: {
-            react: {
-              singleton: true,
-              eager: true,
-              requiredVersion: deps["react"],
-            },
-            "react-dom": {
-              singleton: true,
-              eager: true,
-              requiredVersion: deps["react-dom"],
-            },
-        
           },
         })
       );

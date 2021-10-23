@@ -6,20 +6,9 @@ module.exports = {
     "./Movies": "./src/components/Movies",
   },
   remotes: {
-    // app2: "app2@http://localhost:3002/remoteEntry.js",
   },
   filename: "remoteEntry.js",
   shared: {
     ...deps,
-    react: {
-      singleton: true,
-      eager: true,
-      requiredVersion: deps["react"],
-    },
-    "react-dom": {
-      singleton: true,
-      eager: true,
-      requiredVersion: deps["react-dom"],
-    },
   },
 };
