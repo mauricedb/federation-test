@@ -1,12 +1,16 @@
-// import React from 'react'
+import React from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import styles from '../styles/Home.module.css'
 
+React.xx = React.xx ?? 'React in Host'
+
 const Movies = dynamic(() => import('app1/Movies'), { ssr: false })
 
 export default function Home() {
+  console.log('In Home', React.version, React.xx);
+
   return (
     <div className={styles.container}>
       <Head>

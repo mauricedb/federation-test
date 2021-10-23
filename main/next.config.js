@@ -4,7 +4,7 @@
   
 // }
 
-
+const deps = require("./package.json").dependencies;
 
 module.exports = (phase, { defaultConfig }) => {
   /**
@@ -21,7 +21,19 @@ module.exports = (phase, { defaultConfig }) => {
             // app2: "app2@https://kevinmfe.s3.amazonaws.com/app2/dist/remoteEntry.js",
             app1: "app1@http://localhost:3001/remoteEntry.js",
           },
-          shared: [],
+          shared: {
+            react: {
+              singleton: true,
+              eager: true,
+              requiredVersion: deps["react"],
+            },
+            "react-dom": {
+              singleton: true,
+              eager: true,
+              requiredVersion: deps["react-dom"],
+            },
+        
+          },
         })
       );
 
